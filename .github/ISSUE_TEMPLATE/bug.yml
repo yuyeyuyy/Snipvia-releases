@@ -1,0 +1,26 @@
+name: 使用问题
+description: 提交已脱敏的应用问题
+body:
+  - type: markdown
+    attributes:
+      value: 请勿上传密钥、验证码、私人笔记或未脱敏截图与日志。
+  - type: input
+    id: version
+    attributes:
+      label: 应用版本
+      placeholder: 例如 0.2.1
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: 系统与处理器
+      placeholder: 例如 macOS 27 / Apple 芯片，Windows 11 / x64
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤、预期与实际结果
+    validations:
+      required: true

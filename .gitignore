@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+downloads/
+*.dmg
+*.zip
+*.exe
+*.p12
+*.pfx
+*.p8
+*.key
+.env*

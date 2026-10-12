@@ -1,0 +1,46 @@
+# 截然 · Snipvia
+
+截然是一款截图优先的 AI 桌面工具：截取屏幕内容，与模型对话，并在本地 Markdown 笔记中整理结果。
+
+本仓库提供桌面安装包、发行说明与客户端更新清单。应用源码在独立私有仓库维护；此处公开的是分发资料与校验工具。
+
+## 下载与安装
+
+[查看最新发行版本](https://github.com/yuyeyuyy/Snipvia-releases/releases/latest) · [全部版本](https://github.com/yuyeyuyy/Snipvia-releases/releases)
+
+| 当前迁移版本 | 下载 | 平台 |
+| --- | --- | --- |
+| v0.2.1 macOS | [DMG 安装包](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.1/Snipvia-0.2.1-arm64.dmg) | macOS 14+，Apple 芯片 |
+| v0.2.1 Windows | [EXE 安装包](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.1/Snipvia-Setup-0.2.1-x64.exe) | Windows 11，x64 |
+
+**v0.2.1 是原发行包的迁移副本**：Mac 为临时签名、未 Apple 公证；Windows 未代码签名，完整兼容性仍需真机检查。这个版本没有应用内自动更新，需要手动安装。新功能与当前开发进度不能据此视为已经包含在 v0.2.1 中。
+
+安装步骤、变更说明和 `SHA256SUMS.txt` 随各版本提供。请从对应 Release 下载并校验文件，参见[安装指南](docs/INSTALL.md)。GitHub 页面自动生成的 Source code 压缩包只包含本分发仓库资料，桌面软件请下载 DMG、ZIP 或 EXE。
+
+## 应用内更新
+
+包含更新功能并启用签名更新的正式 Mac 版本支持：后台检查 → 展示版本和说明 → 用户下载 → 保存笔记 → 用户确认重启安装。下载完成不会自动退出软件。
+
+更新端点无需登录 GitHub：
+
+```text
+https://api.github.com/repos/yuyeyuyy/Snipvia-releases/releases/latest
+https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v<version>/latest-mac.yml
+```
+
+正式 Mac 自动更新发行包含两种架构的签名、公证 ZIP / DMG 和最终更新清单；旧安装包需要先手动升级到包含该功能的版本。Windows 当前通过发行页手动更新。详见[更新机制](docs/UPDATES.md)。
+
+## 问题反馈
+
+可在 [Issues](https://github.com/yuyeyuyy/Snipvia-releases/issues) 提交已脱敏的复现步骤、应用版本和系统信息。请勿上传 API Key、账号验证码、个人笔记、原始私人截图或完整未脱敏日志。安全问题参见 [SECURITY.md](SECURITY.md)。
+
+## 维护与校验
+
+源码构建、平台测试、签名与 Apple 公证在私有工程或受信发布环境执行。本仓库执行公开发行文件的哈希与清单校验，不持有模型 Key、源码仓库 Token 或 Apple 签名凭据。
+
+```bash
+node --test scripts/validate-release.test.mjs
+node scripts/validate-release.mjs <发行文件目录> v<version>
+```
+
+历史手动安装包可显式使用 `--allow-legacy`，不会被判定为自动更新发行。公开校验不能替代平台签名、公证与真实设备验收。发布维护者参见[维护指南](docs/MAINTAINERS.md)。

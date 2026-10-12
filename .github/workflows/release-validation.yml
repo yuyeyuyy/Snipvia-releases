@@ -1,0 +1,45 @@
+name: Release validation
+
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 已发布版本，例如 v0.2.1
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.15.0'
+      - name: Test the release validator with synthetic files
+        run: node --test scripts/validate-release.test.mjs
+      - name: Download and validate published assets
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: yuyeyuyy/Snipvia-releases
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          node -e 'if (!/^v(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)$/.test(process.env.RELEASE_TAG)) process.exit(1)'
+          gh release download "$RELEASE_TAG" --repo "$GH_REPO" --dir "$RUNNER_TEMP/release-files"
+          if [ "$RELEASE_TAG" = 'v0.2.1' ]; then
+            node scripts/validate-release.mjs "$RUNNER_TEMP/release-files" "$RELEASE_TAG" --allow-legacy > "$RUNNER_TEMP/validation.json"
+          else
+            node scripts/validate-release.mjs "$RUNNER_TEMP/release-files" "$RELEASE_TAG" > "$RUNNER_TEMP/validation.json"
+          fi
+          cat "$RUNNER_TEMP/validation.json" >> "$GITHUB_STEP_SUMMARY"
