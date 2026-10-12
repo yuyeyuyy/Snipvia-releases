@@ -2,7 +2,7 @@
 
 ## macOS
 
-在对应 Release 选择与你的处理器匹配的 DMG：`arm64` 为 Apple 芯片，`x64` 为 Intel。v0.2.1 迁移包只有 Apple 芯片版本，最低 macOS 14；没有完成正式签名和 Apple 公证，请先阅读该 Release 的说明与限制。
+v0.2.2 最低 macOS 14，提供 Developer ID 签名、Apple 公证的独立 DMG：`arm64` 为 Apple 芯片，`x64` 为 Intel。Intel 真机兼容性仍需完整验收。v0.2.1 迁移包只有 Apple 芯片版本，采用临时签名且没有公证；旧包的限制保持原说明。
 
 打开 DMG，将 Snipvia 拖入「应用程序」。替换旧版前退出应用。用户数据与笔记使用独立存储位置，升级前可自行备份重要内容。
 
@@ -30,4 +30,4 @@ Get-FileHash .\Snipvia-Setup-<version>-x64.exe -Algorithm SHA256
 
 ## 应用内更新
 
-包含更新功能的正式签名 Mac 版在「设置 → 关于 → 软件更新」检查、下载并明确确认「重启并更新」。未启用更新的旧包、开发版及当前 Windows 包使用手动升级。
+v0.2.2 起，正式签名 Mac 版在「设置 → 关于 → 软件更新」检查、下载并明确确认「重启并更新」。从 v0.2.1 或更早版本升级需要先手动安装一次 v0.2.2。开发版及当前 Windows 包继续使用手动升级。

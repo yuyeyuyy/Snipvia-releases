@@ -8,14 +8,17 @@
 
 [查看最新发行版本](https://github.com/yuyeyuyy/Snipvia-releases/releases/latest) · [全部版本](https://github.com/yuyeyuyy/Snipvia-releases/releases)
 
-| 当前迁移版本 | 下载 | 平台 |
+| 当前版本 | 下载 | 平台 |
 | --- | --- | --- |
-| v0.2.1 macOS | [DMG 安装包](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.1/Snipvia-0.2.1-arm64.dmg) | macOS 14+，Apple 芯片 |
-| v0.2.1 Windows | [EXE 安装包](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.1/Snipvia-Setup-0.2.1-x64.exe) | Windows 11，x64 |
+| v0.2.2 macOS | [Apple 芯片 DMG](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.2/Snipvia-0.2.2-arm64.dmg) | macOS 14+，Apple 芯片 |
+| v0.2.2 macOS | [Intel DMG](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.2/Snipvia-0.2.2-x64.dmg) | macOS 14+，Intel；真机兼容性待完整验收 |
+| v0.2.1 Windows 预览版 | [EXE 安装包](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.1/Snipvia-Setup-0.2.1-x64.exe) | Windows 11，x64；未代码签名 |
 
-**v0.2.1 是原发行包的迁移副本**：Mac 为临时签名、未 Apple 公证；Windows 未代码签名，完整兼容性仍需真机检查。这个版本没有应用内自动更新，需要手动安装。新功能与当前开发进度不能据此视为已经包含在 v0.2.1 中。
+**v0.2.2 Mac 版启用应用内更新**，安装包经过 Developer ID 签名与 Apple 公证。首次从 v0.2.1 或更早版本升级，请手动下载 DMG 安装；之后支持应用内检查、下载及确认重启更新。[查看 v0.2.2 更新说明](docs/RELEASE_NOTES_v0.2.2.md)。
 
-安装步骤、变更说明和 `SHA256SUMS.txt` 随各版本提供。请从对应 Release 下载并校验文件，参见[安装指南](docs/INSTALL.md)。GitHub 页面自动生成的 Source code 压缩包只包含本分发仓库资料，桌面软件请下载 DMG、ZIP 或 EXE。
+v0.2.1 是原发行包的迁移副本：Mac 临时签名、未公证，Windows 未代码签名，都没有自动安装更新能力。本次只更新 Mac；已有 Windows 预览版继续手动安装，完整真机兼容性仍需检查。
+
+安装步骤见[安装指南](docs/INSTALL.md)，变更说明与 `SHA256SUMS.txt` 在对应 Release 中提供。请从同一版本下载并校验文件。GitHub 页面自动生成的 Source code 压缩包只包含本分发仓库资料，桌面软件请下载 DMG、ZIP 或 EXE。
 
 ## 应用内更新
 
