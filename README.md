@@ -10,11 +10,13 @@
 
 | 当前版本 | 下载 | 平台 |
 | --- | --- | --- |
-| v0.2.2 macOS | [Apple 芯片 DMG](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.2/Snipvia-0.2.2-arm64.dmg) | macOS 14+，Apple 芯片 |
-| v0.2.2 macOS | [Intel DMG](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.2/Snipvia-0.2.2-x64.dmg) | macOS 14+，Intel；真机兼容性待完整验收 |
+| v0.2.3 macOS | [Apple 芯片 DMG](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.3/Snipvia-0.2.3-arm64.dmg) | macOS 14+，Apple 芯片 |
+| v0.2.3 macOS | [Intel DMG](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.3/Snipvia-0.2.3-x64.dmg) | macOS 14+，Intel；真机兼容性待完整验收 |
 | v0.2.1 Windows 预览版 | [EXE 安装包](https://github.com/yuyeyuyy/Snipvia-releases/releases/download/v0.2.1/Snipvia-Setup-0.2.1-x64.exe) | Windows 11，x64；未代码签名 |
 
-**v0.2.2 Mac 版启用应用内更新**，安装包经过 Developer ID 签名与 Apple 公证。首次从 v0.2.1 或更早版本升级，请手动下载 DMG 安装；之后支持应用内检查、下载及确认重启更新。[查看 v0.2.2 更新说明](docs/RELEASE_NOTES_v0.2.2.md)。
+**v0.2.3 Mac 版完善 AI 对话工作区**，支持图片输入、笔记与预测分支的确认编辑，以及全新的黑白灰聊天界面。安装包经过 Developer ID 签名与 Apple 公证。[查看 v0.2.3 更新说明](docs/RELEASE_NOTES_v0.2.3.md)。
+
+v0.2.2 起支持应用内检查、下载及确认重启更新。已安装 v0.2.2 的用户可直接检查更新；首次从 v0.2.1 或更早版本升级，请手动下载新版 DMG 安装。
 
 v0.2.1 是原发行包的迁移副本：Mac 临时签名、未公证，Windows 未代码签名，都没有自动安装更新能力。本次只更新 Mac；已有 Windows 预览版继续手动安装，完整真机兼容性仍需检查。
 
